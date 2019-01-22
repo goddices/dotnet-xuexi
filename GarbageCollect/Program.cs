@@ -14,7 +14,7 @@ namespace GarbgeCollect
 
             GC.Collect();
             GC.Collect();
-            GC.
+             
             byte[] large_array = new byte[85001];
             int gen_of_large_array = GC.GetGeneration(large_array);
             Console.WriteLine($"generation of large_array = {gen_of_large_array}");

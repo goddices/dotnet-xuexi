@@ -10,7 +10,7 @@ namespace Win32Messaging
     public partial class FormMain : Form
     {
 
-        #region win32
+        #region win32函数声明
         [DllImport("User32.dll", EntryPoint = "SendMessage")]
         private static extern int SendMessage(IntPtr hWnd, int msg, uint wParam, ref CustomParam lParam);
 
@@ -24,7 +24,7 @@ namespace Win32Messaging
 
         #endregion
 
-        #region 自定义消息
+        #region 自定义win32消息处理
         protected event EventHandler<MessageEventArgs> MessageRecvived;
 
         protected class MessageEventArgs : EventArgs
@@ -32,10 +32,7 @@ namespace Win32Messaging
             public DateTime MessageDateTime { get; set; }
             public String MessageText { get; set; }
         }
-        #endregion
-
-
-
+        
         private void ProductMessage(String message)
         {
             var parm = new CustomParam
@@ -82,14 +79,13 @@ namespace Win32Messaging
             }
 
         }
+        #endregion
 
-
-
-
+        #region winform事件
         public FormMain()
         {
             InitializeComponent();
-            MessageRecvived += CustomEvent_MessageReceived; 
+            MessageRecvived += CustomEvent_MessageReceived;
         }
 
         private void CustomEvent_MessageReceived(object sender, MessageEventArgs e)
@@ -97,12 +93,13 @@ namespace Win32Messaging
             AddItem(e.MessageText, e.MessageDateTime);
         }
 
-        private void AddItem(String txt, DateTime dt)
+       
+        private void button1_Click(object sender, EventArgs e)
         {
-            listBox1.Items.Add(String.Format("[{1}] {0}", txt, dt.ToString("yyyy/MM/dd HH:mm:ss")));
+            //任何地方，都不能堵塞窗口的主线程
+            //Thread.Sleep(1000);
+            ProductMessage(String.Format("线程(Id={0})产生的消息", Thread.CurrentThread.ManagedThreadId));
         }
-
-
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -112,19 +109,22 @@ namespace Win32Messaging
             });
         }
 
-        private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
+        private async void button3_Click(object sender, EventArgs e)
         {
-
+            //await不会堵塞主线程
+            await Task.Run(() =>
+            {
+                Thread.Sleep(3000);
+            }); 
+            AddItem(String.Format("线程(Id={0})产生的消息", Thread.CurrentThread.ManagedThreadId), DateTime.Now);
         }
+        #endregion
 
-
-
-
-        private void button1_Click(object sender, EventArgs e)
+        #region 我的方法
+        private void AddItem(String txt, DateTime dt)
         {
-            //任何地方，都不能堵塞窗口的主线程
-            //Thread.Sleep(1000);
-            ProductMessage(String.Format("线程(Id={0})产生的消息", Thread.CurrentThread.ManagedThreadId));
+            listBox1.Items.Add(String.Format("[{1}] {0}", txt, dt.ToString("yyyy/MM/dd HH:mm:ss")));
         }
+        #endregion
     }
 }
