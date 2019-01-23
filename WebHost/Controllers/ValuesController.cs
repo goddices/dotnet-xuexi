@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Http.Controllers;
 
 namespace WebHost.Controllers
 {
@@ -14,6 +15,14 @@ namespace WebHost.Controllers
         private static int TId()
         {
             return Thread.CurrentThread.ManagedThreadId;
+        }
+
+        protected override void Initialize(HttpControllerContext controllerContext)
+        {
+ 
+            //System.Web.AspNetSynchronizationContext
+            Debug.WriteLine($"Current SynchronizationContext is {SynchronizationContext.Current?.ToString()}");
+            base.Initialize(controllerContext);
         }
 
         // GET api/<controller>

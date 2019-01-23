@@ -28,21 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button2 = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.messagingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.同步方法ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.task方法ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.await之后ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(4, 4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(132, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "主线程生产消息";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button1_Click);
             // 
             // listBox1
             // 
@@ -51,58 +44,84 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listBox1.DisplayMember = "ClientName";
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 12;
-            this.listBox1.Location = new System.Drawing.Point(1, 90);
+            this.listBox1.ItemHeight = 15;
+            this.listBox1.Location = new System.Drawing.Point(1, 37);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(4);
             this.listBox1.Name = "listBox1";
             this.listBox1.ScrollAlwaysVisible = true;
-            this.listBox1.Size = new System.Drawing.Size(379, 388);
+            this.listBox1.Size = new System.Drawing.Size(541, 574);
             this.listBox1.TabIndex = 2;
             this.listBox1.ValueMember = "SessionID";
             // 
-            // button1
+            // menuStrip1
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(4, 33);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(132, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "新线程开始生产消息";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button2_Click);
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.messagingToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(540, 28);
+            this.menuStrip1.TabIndex = 5;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // button3
+            // messagingToolStripMenuItem
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(4, 62);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(132, 23);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "异步方法";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.messagingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.同步方法ToolStripMenuItem,
+            this.task方法ToolStripMenuItem,
+            this.await之后ToolStripMenuItem});
+            this.messagingToolStripMenuItem.Name = "messagingToolStripMenuItem";
+            this.messagingToolStripMenuItem.Size = new System.Drawing.Size(100, 24);
+            this.messagingToolStripMenuItem.Text = "Messaging";
+            // 
+            // 同步方法ToolStripMenuItem
+            // 
+            this.同步方法ToolStripMenuItem.Name = "同步方法ToolStripMenuItem";
+            this.同步方法ToolStripMenuItem.Size = new System.Drawing.Size(246, 26);
+            this.同步方法ToolStripMenuItem.Text = "基于事件的同步方法";
+            this.同步方法ToolStripMenuItem.Click += new System.EventHandler(this.SyncMethod_Click);
+            // 
+            // task方法ToolStripMenuItem
+            // 
+            this.task方法ToolStripMenuItem.Name = "task方法ToolStripMenuItem";
+            this.task方法ToolStripMenuItem.Size = new System.Drawing.Size(246, 26);
+            this.task方法ToolStripMenuItem.Text = "Task.Factory.StartNew";
+            this.task方法ToolStripMenuItem.Click += new System.EventHandler(this.TaskFactoryStartNew_Click);
+            // 
+            // await之后ToolStripMenuItem
+            // 
+            this.await之后ToolStripMenuItem.Name = "await之后ToolStripMenuItem";
+            this.await之后ToolStripMenuItem.Size = new System.Drawing.Size(246, 26);
+            this.await之后ToolStripMenuItem.Text = "await之后";
+            this.await之后ToolStripMenuItem.Click += new System.EventHandler(this.AfterAwaitMethod_Click);
             // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(377, 478);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(540, 623);
             this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "WIN32 Message Demo";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
+            this.Text = "WIN32 Messaging";
+            this.Load += new System.EventHandler(this.FormMain_Load);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem messagingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 同步方法ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem task方法ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem await之后ToolStripMenuItem;
     }
 }
 
