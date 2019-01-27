@@ -34,6 +34,8 @@
             this.同步方法ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.task方法ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.await之后ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.waitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,7 +59,8 @@
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.messagingToolStripMenuItem});
+            this.messagingToolStripMenuItem,
+            this.waitToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(540, 28);
@@ -95,6 +98,21 @@
             this.await之后ToolStripMenuItem.Text = "await之后";
             this.await之后ToolStripMenuItem.Click += new System.EventHandler(this.AfterAwaitMethod_Click);
             // 
+            // waitToolStripMenuItem
+            // 
+            this.waitToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.manualToolStripMenuItem});
+            this.waitToolStripMenuItem.Name = "waitToolStripMenuItem";
+            this.waitToolStripMenuItem.Size = new System.Drawing.Size(54, 24);
+            this.waitToolStripMenuItem.Text = "Wait";
+            // 
+            // manualToolStripMenuItem
+            // 
+            this.manualToolStripMenuItem.Name = "manualToolStripMenuItem";
+            this.manualToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.manualToolStripMenuItem.Text = "Manual";
+            this.manualToolStripMenuItem.Click += new System.EventHandler(this.manualToolStripMenuItem_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -122,6 +140,8 @@
         private System.Windows.Forms.ToolStripMenuItem 同步方法ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem task方法ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem await之后ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem waitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem manualToolStripMenuItem;
     }
 }
 

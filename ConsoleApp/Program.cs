@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Collections.Concurrent;
+using System.IO;
 using System.Threading;
-using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace ConsoleApp
 {
@@ -13,10 +9,21 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
+            string f = "file1.txt";
             Console.WriteLine($"Current SynchronizationContext is {SynchronizationContext.Current?.ToString()}");
+            // FileBeginEnd.Run(f);
+            FileAsync.Run(f);
+         
+
+            
+            Console.WriteLine("\n\n\n");
+            Console.WriteLine("读文件完成。");
             Console.ReadLine();
         }
+
+
+
     }
 
- 
+
 }

@@ -136,5 +136,21 @@ namespace Win32Messaging
 
         #endregion
 
+        #region ManualResetEvent
+        private void manualToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddItem("开始ManualResetEvent", DateTime.Now);
+            ManualResetEvent mre = new ManualResetEvent(false);
+            new Thread(new ParameterizedThreadStart((x) =>
+            {
+                var xmre = x as ManualResetEvent;
+                Thread.Sleep(3000);
+                xmre.Set();
+            })).Start(mre);
+            // 阻塞UI主线程
+            mre.WaitOne();
+            AddItem("结束ManualResetEvent", DateTime.Now);
+        }
+        #endregion
     }
 }
