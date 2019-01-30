@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 
@@ -19,7 +20,7 @@ namespace WebHost.Controllers
 
         protected override void Initialize(HttpControllerContext controllerContext)
         {
- 
+
             //System.Web.AspNetSynchronizationContext
             Debug.WriteLine($"Current SynchronizationContext is {SynchronizationContext.Current?.ToString()}");
             base.Initialize(controllerContext);
@@ -64,8 +65,16 @@ namespace WebHost.Controllers
         }
 
         // PUT api/<controller>/5
-        public void Put(int id, [FromBody]string value)
+        public async Task<string> Put(int id, [FromBody]string value)
         {
+            var ctx = HttpContext.Current;
+            await Task.Run(() =>
+            {
+                //get null
+                var nullctx = HttpContext.Current;
+
+            });
+            return value;
         }
 
         // DELETE api/<controller>/5
