@@ -96,6 +96,12 @@ namespace Win32Messaging
 
         private void FormMain_Load(object sender, EventArgs e)
         {
+            //throw new Exception("mean to throw");
+            new Thread(() => {
+                Debug.WriteLine("mean to throw");
+                MessageBox.Show("mean to throw");
+                throw new Exception("mean to throw");
+            }).Start();
             //System.Windows.Forms.WindowsFormsSynchronizationContext
             AddItem($"当前 SynchronizationContext 是: {SynchronizationContext.Current?.ToString()}", DateTime.Now);
         }

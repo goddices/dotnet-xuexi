@@ -19,7 +19,7 @@ namespace WebHost.Controllers
 
         protected override void Initialize(HttpControllerContext controllerContext)
         {
- 
+
             //System.Web.AspNetSynchronizationContext
             Debug.WriteLine($"Current SynchronizationContext is {SynchronizationContext.Current?.ToString()}");
             base.Initialize(controllerContext);
@@ -28,34 +28,49 @@ namespace WebHost.Controllers
         // GET api/<controller>
         public async Task<IEnumerable<string>> Get()
         {
-            Debug.WriteLine($"thread id {TId()} before Task.Run", "Debug");
-            await Task.Run(() =>
+            try
             {
-                Debug.WriteLine($"thread id {TId()} in Task.Run", "Debug");
-
-            });
-            Debug.WriteLine($"thread id {TId()} after Task.Run", "Debug");
-            return new string[] { "value1", "value2" };
+                Debug.WriteLine($"thread id {TId()} before Task.Run", "Async Debug");
+                IEnumerable<string> result = await Task.Run(() =>
+                 {
+                     Thread.Sleep(2000);
+                     Debug.WriteLine($"thread id {TId()} in Task.Run", "Async Debug");
+                     return new string[] { "value1", "value2" };
+                 });
+                Debug.WriteLine($"thread id {TId()} after Task.Run", "Async Debug");
+                return result;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("Exception:" + e.ToString(), "Async Debug");
+            }
+            return new string[0];
         }
 
         // GET api/<controller>/5
         public string Get(int id)
         {
-            Debug.WriteLine($"thread id {TId()} before Task.Run", "Debug");
-            Task.Run(() =>
+            try
             {
-                Debug.WriteLine($"thread id {TId()} in Task.Run", "Debug");
+                Debug.WriteLine($"thread id {TId()} before Task.Run", "Task Debug");
+                Task.Run(() =>
+                {
+                    Debug.WriteLine($"thread id {TId()} in Task.Run", "Task Debug");
 
-            });
-            Debug.WriteLine($"thread id {TId()} after Task.Run", "Debug");
-
-            return "value";
+                });
+                Debug.WriteLine($"thread id {TId()} after Task.Run", "Task Debug");
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("Exception:" + e.ToString(), "Task Debug");
+            }
+            return id.ToString();
         }
 
         // POST api/<controller>
         public async Task<HttpResponseMessage> Post([FromBody]String value)
         {
-            Debug.WriteLine($"thread id {TId()}", "Debug");
+            Debug.WriteLine($"thread id {TId()}", "Post Debug");
 
             var response = new HttpResponseMessage(HttpStatusCode.OK);
             response.Content = new StringContent(value);

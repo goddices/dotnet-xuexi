@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GarbageCollect", "GarbageCo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebHost", "WebHost\WebHost.csproj", "{7BA981B6-F81F-4BDA-8B08-022D0A24F1EB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp.NETCore", "ConsoleApp.NETCore\ConsoleApp.NETCore.csproj", "{0AE3C8D3-E2D5-4B8D-8E92-80D3E0725629}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{7BA981B6-F81F-4BDA-8B08-022D0A24F1EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7BA981B6-F81F-4BDA-8B08-022D0A24F1EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7BA981B6-F81F-4BDA-8B08-022D0A24F1EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AE3C8D3-E2D5-4B8D-8E92-80D3E0725629}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AE3C8D3-E2D5-4B8D-8E92-80D3E0725629}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AE3C8D3-E2D5-4B8D-8E92-80D3E0725629}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AE3C8D3-E2D5-4B8D-8E92-80D3E0725629}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

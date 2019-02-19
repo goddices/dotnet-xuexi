@@ -1,11 +1,11 @@
-﻿using System; 
-using System.Windows.Forms; 
+﻿using System;
+using System.Windows.Forms;
 
 namespace Win32Messaging
 {
     static class Program
     {
-         
+
 
 
         /// <summary>
@@ -14,13 +14,23 @@ namespace Win32Messaging
         [STAThread]
         static void Main()
         {
-        
+            AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
             Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false); 
+            Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FormMain());
+            Application.ThreadException += Application_ThreadException;
+
         }
 
- 
- 
+        private static void Application_ThreadException(object sender, System.Threading.ThreadExceptionEventArgs e)
+        {
+            MessageBox.Show(e.ToString());
+        }
+
+        private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            
+            MessageBox.Show(e.ToString());
+        }
     }
 }
