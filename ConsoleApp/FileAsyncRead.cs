@@ -9,7 +9,65 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp
 {
-    public class FileBeginEnd
+    public static class FileAsyncRead
+    {
+        public static void Run()
+        {
+            string f = "file1.txt";
+
+            BeginEndMethod.Run(f);
+            AsyncMethod.Run(f);
+
+            Console.WriteLine("\n\n\n");
+            Console.WriteLine("读文件完成。"); 
+        }
+    }
+    internal class AsyncMethod
+    {
+        public static void Run(string filePath)
+        {
+            AsyncMethod file = new AsyncMethod(filePath);
+            Task t = file.ReadFile();
+            t.Wait();
+        }
+
+        private const int BUFFER_SIZE = 4096;
+        private byte[] buffer = new byte[BUFFER_SIZE];
+        private StringBuilder sb = new StringBuilder();
+        private string filePath = "";
+
+        public AsyncMethod(string filePath)
+        {
+            this.filePath = filePath;
+        }
+
+        private async Task ReadFile()
+        {
+
+            int offerset = 0;
+
+            Stream fs = new FileStream(filePath, FileMode.Open);
+
+
+            Debug.WriteLine($"Current Thread Id = {Thread.CurrentThread.ManagedThreadId}", "Before BeginRead");
+            int bytes = 0;
+            do
+            {
+                bytes = await fs.ReadAsync(buffer, offerset, BUFFER_SIZE);
+                sb.Append(Encoding.UTF8.GetString(buffer, 0, bytes));
+            } while (bytes != 0);
+
+            Debug.WriteLine($"Current Thread Id = {Thread.CurrentThread.ManagedThreadId}", "After BeginRead");
+
+            Console.WriteLine(sb.ToString());
+
+            fs.Dispose();
+        }
+
+    }
+
+
+    internal class BeginEndMethod
     {
         private struct AsyncState
         {
@@ -19,8 +77,8 @@ namespace ConsoleApp
 
         public static void Run(string filePath)
         {
-            FileBeginEnd file = new FileBeginEnd(filePath);
-            file.ReadFile(); 
+            BeginEndMethod file = new BeginEndMethod(filePath);
+            file.ReadFile();
         }
 
 
@@ -29,7 +87,7 @@ namespace ConsoleApp
         private StringBuilder sb = new StringBuilder();
         private string filePath = "";
 
-        public FileBeginEnd(string filePath)
+        public BeginEndMethod(string filePath)
         {
             this.filePath = filePath;
         }
@@ -45,7 +103,7 @@ namespace ConsoleApp
                 MRE = new ManualResetEvent(false),
                 Stream = fs
             };
-       
+
             Debug.WriteLine($"Current Thread Id = {Thread.CurrentThread.ManagedThreadId}", "Before BeginRead");
             IAsyncResult ar = fs.BeginRead(buffer, offerset, BUFFER_SIZE, ReadFileCallback, state);
 

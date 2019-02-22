@@ -9,63 +9,19 @@ namespace ConsoleApp
 {
     class Program
     {
+
         [SecurityPermission(SecurityAction.Demand, Flags = SecurityPermissionFlag.ControlAppDomain)]
         static void Main(string[] args)
-        {     
-             
-            AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
-            //string f = "file1.txt";
-            //Console.WriteLine($"Current SynchronizationContext is {SynchronizationContext.Current?.ToString()}");
-            //// FileBeginEnd.Run(f);
-            //FileAsync.Run(f);
+        {
+            Console.WriteLine($"Current SynchronizationContext is {SynchronizationContext.Current?.ToString()}");
 
-            //Console.WriteLine("\n\n\n");
-            //Console.WriteLine("读文件完成。");
-            //TaskScheduler.UnobservedTaskException += TaskScheduler_UnobservedTaskException;
-           
-                new Thread(Run).Start();
-                //Task.Run(() => { Run(i); });
-           
-            Console.ReadLine();
-            GC.Collect();
+            //FileAsyncRead.Run();
+            //Multithread.RunTask();
+            //Multithread.RunThread();
+            //VolatileKeyword.Run();
+            VisableVolatileDemo.Run();
             Console.ReadLine();
         }
-
-        private static void TaskScheduler_UnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs e)
-        {
-            Console.WriteLine("TaskScheduler_UnobservedTaskException:" + e.Exception.ToString());
-        }
-
-        private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
-        {
-            try
-            {
-                Console.WriteLine("CurrentDomain_UnhandledException:" + e.ExceptionObject);
-                
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
-        }
-
-        static void Run(object i)
-        {
-            AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
-            //try
-            //{
-
-            Console.WriteLine("Thread Run");
-            Thread.Sleep(1000);
-            throw new Exception("mean to throw");
-            //}
-            //catch
-            //{
-            //    Console.WriteLine("exception");
-            //}
-        }
-
-
 
     }
 
