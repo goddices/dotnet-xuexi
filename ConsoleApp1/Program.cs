@@ -20,7 +20,9 @@ namespace ConsoleApp1
             //Multithread.RunTask();
             //Multithread.RunThread();
             //VolatileKeyword.Run();
-            VisableVolatileDemo.Run();
+            //VisableVolatileDemo.Run();
+            //MutexDemo.Run();
+            MyMutexDemoWithTask.RunAsync().Wait();
             Console.ReadLine();
         }
 

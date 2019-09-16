@@ -53,6 +53,7 @@
     <Compile Include="Programs\GarbageCollect.cs" />
     <Compile Include="Programs\Multithread.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="Programs\MutexDemo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Programs\VolatileKeyword.cs" />
   </ItemGroup>

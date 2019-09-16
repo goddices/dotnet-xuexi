@@ -1,0 +1,24 @@
+﻿1.1、安装数据库提供程序
+MsSql：Install-Package Microsoft.EntityFrameworkCore.SqlServer
+
+MySql：Install-Package Pomelo.EntityFrameworkCore.MySql
+或者
+官方:Install-Package MySql.Data.EntityFrameworkCore -Version 8.0.11
+
+1.2、安装程序包管理器控制台
+运行：Install-Package Microsoft.EntityFrameworkCore.Tools
+
+1.3、安装设计包
+运行：Install-Package Microsoft.EntityFrameworkCore.Design
+
+数据据库提供程序设计包	(EF Core 2.0 不再需要)
+MsSql：Install-Package Microsoft.EntityFrameworkCore.SqlServer.Design
+MySql：Install-Package Pomelo.EntityFrameworkCore.MySql.Design
+
+DB First——从现有数据库创建模型
+
+MySql：Scaffold-DbContext -Connection "Data Source=(LocalDb)\MSSQLLocalDB;Initial Catalog=sqlearn;Integrated Security=True" -Provider "Pomelo.EntityFrameworkCore.MySql" -OutputDir "Models"
+
+MsSql：Scaffold-DbContext -Connection "Data Source=(LocalDb)\MSSQLLocalDB;Initial Catalog=sqlearn;Integrated Security=True" -Provider "Microsoft.EntityFrameworkCore.SqlServer" -OutputDir "Models"
+
+使用说明：将Connection中的连接字符串替换为自己的数据库连接，将OutputDir中的Models替换为自己要生成的文件目录名
