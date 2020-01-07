@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using EfCoreDbFirst.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebAppAspNetCore.Controllers
 {
@@ -11,6 +12,13 @@ namespace WebAppAspNetCore.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        //依赖注入
+        private SqlearnContext context;
+        public ValuesController(SqlearnContext context)
+        {
+            this.context = context;
+        }
+
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
@@ -20,13 +28,12 @@ namespace WebAppAspNetCore.Controllers
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public async Task<IEnumerable<Course>> Get(int id)
         {
-            SqlearnContext context = HttpContext.RequestServices.GetService(typeof(SqlearnContext)) as SqlearnContext;
+            //using Microsoft.EntityFrameworkCore 调用ToListAsync方法
             using (context)
             {
-                Course course = context.Course.Where(c => c.Teacher.Name == "billgates").Single();
-                return course.Name;
+                return await context.Course.Where(c => c.Teacher.Name == "BillGates").ToListAsync();
             }
         }
 
