@@ -12,6 +12,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using WebAppAspNetCore.Services;
+using WebAppAspNetCore.Settings;
 
 namespace WebAppAspNetCore
 {
@@ -33,6 +35,13 @@ namespace WebAppAspNetCore
             {
                 options.UseSqlServer(Configuration.GetConnectionString("db"));
             });
+            services.AddScoped<IMyService, MyService>();
+            services.Configure<MySettings>(Configuration.GetSection("MySettings"));
+
+
+            services.Configure<SlackApiSettings>("Dev", Configuration.GetSection("SlackApi:DevChannel"));
+            services.Configure<SlackApiSettings>("General", Configuration.GetSection("SlackApi:GeneralChannel"));
+            services.Configure<SlackApiSettings>("Public", Configuration.GetSection("SlackApi:PublicChannel"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
