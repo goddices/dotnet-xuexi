@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebAppAspNetCore</name>
+    </assembly>
+    <members>
+        <member name="T:WebAppAspNetFramework.Controllers.AsyncController">
+            <summary>
+            async关键字在webapp
+            </summary> 
+        </member>
+        <member name="M:WebAppAspNetFramework.Controllers.AsyncController.GetAsync">
+            <summary>
+            GetAsync
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebAppAspNetFramework.Controllers.AsyncController.GetSync">
+            <summary>
+            GetSync
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebAppAspNetFramework.Controllers.AsyncController.GetHttpContextAsync">
+            <summary>
+            GetHttpContextAsync
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:WebAppAspNetCore.Controllers.ValuesController">
+            <summary>
+            Values 控制器
+            </summary>
+        </member>
+        <member name="M:WebAppAspNetCore.Controllers.ValuesController.Get">
+            <summary>
+            GET GET EGT!
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebAppAspNetCore.Controllers.ValuesController.Get(System.Int32)">
+            <summary>
+            GET BY ID!
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebAppAspNetCore.Controllers.ValuesController.Post(System.String)">
+            <summary>
+            post man
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:WebAppAspNetCore.Controllers.ValuesController.Put(System.Int32,System.String)">
+            <summary>
+            put your money
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:WebAppAspNetCore.Controllers.ValuesController.Delete(System.Int32)">
+            <summary>
+            delete your mind
+            </summary>
+            <param name="id"></param>
+        </member>
+    </members>
+</doc>

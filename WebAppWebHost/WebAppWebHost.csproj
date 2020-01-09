@@ -165,9 +165,11 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AsyncController.cs" />
     <Compile Include="Controllers\HelloController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MethodOverrideController.cs" />
+    <Compile Include="Controllers\Async2Controller.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Core\Services\HelloService.cs" />
     <Compile Include="DICW\CastleWindsorResolver.cs" />

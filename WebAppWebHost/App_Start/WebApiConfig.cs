@@ -38,7 +38,12 @@ namespace WebAppWebHost
                 defaults: new { id = RouteParameter.Optional }
             );
 
-             
+            config.Routes.MapHttpRoute(
+                name: "DefaultApi3",
+                routeTemplate: "api/{controller}/{action}",
+                defaults: new { id = RouteParameter.Optional }
+            );
+
             config.Filters.Add(new GlobalEffectFilterAttribute());
         }
     }

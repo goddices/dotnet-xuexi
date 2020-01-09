@@ -11,6 +11,9 @@ using WebAppAspNetCore.Settings;
 
 namespace WebAppAspNetCore.Controllers
 {
+    /// <summary>
+    /// Values 控制器
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class ValuesController : ControllerBase
@@ -44,6 +47,10 @@ namespace WebAppAspNetCore.Controllers
         }
 
         // GET api/values
+        /// <summary>
+        /// GET GET EGT!
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IEnumerable<string> Get()
         {
@@ -57,6 +64,11 @@ namespace WebAppAspNetCore.Controllers
         }
 
         // GET api/values/5
+        /// <summary>
+        /// GET BY ID!
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public async Task<IEnumerable<Course>> Get(int id)
         {
@@ -68,18 +80,31 @@ namespace WebAppAspNetCore.Controllers
         }
 
         // POST api/values
+        /// <summary>
+        /// post man
+        /// </summary>
+        /// <param name="value"></param>
         [HttpPost]
         public void Post([FromBody] string value)
         {
         }
 
         // PUT api/values/5
+        /// <summary>
+        /// put your money
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="value"></param>
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
         }
 
         // DELETE api/values/5
+        /// <summary>
+        /// delete your mind
+        /// </summary>
+        /// <param name="id"></param>
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

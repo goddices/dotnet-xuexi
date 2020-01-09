@@ -16,7 +16,7 @@ namespace WebAppWebHost
             //注册路由时，还要忽略自定义的HttpHandler，这里是MyHandler，在Web.config中：
             //<system.webServer>
             //  <handlers>
-            //    <add name="MyHandler" path="*.mhd" verb="*" type="WebApp1.Handlers.MyHandler" />
+            //    <add name="MyHandler" path="*.mhd" verb="*" type="WebAppWebHost.Handlers.MyHandler" />
             //  </handlers>
             //</system.webServer>
             routes.IgnoreRoute("{resource}.mhd");

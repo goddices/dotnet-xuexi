@@ -11,7 +11,7 @@ using System.Web.Http.Controllers;
 
 namespace WebAppAspNetFramework.Controllers
 {
-    public class ValuesController : ApiController
+    public class AsyncController : ApiController
     {
         private static int TId()
         {
