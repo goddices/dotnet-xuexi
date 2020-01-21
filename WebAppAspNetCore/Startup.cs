@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -41,7 +42,10 @@ namespace WebAppAspNetCore
             services.AddScoped<IMyService, MyService>();
             services.Configure<MySettings>(Configuration.GetSection("MySettings"));
 
-
+            services.Configure<RazorViewEngineOptions>(options =>
+            {
+                options.ViewLocationExpanders.Add(new MyViewLocationExpander());
+            });
             services.Configure<SlackApiSettings>("Dev", Configuration.GetSection("SlackApi:DevChannel"));
             services.Configure<SlackApiSettings>("General", Configuration.GetSection("SlackApi:GeneralChannel"));
             services.Configure<SlackApiSettings>("Public", Configuration.GetSection("SlackApi:PublicChannel"));
@@ -82,7 +86,9 @@ namespace WebAppAspNetCore
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
-            app.UseMvc();
+            app.UseMvc(routes => routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}"));
 
         }
     }
