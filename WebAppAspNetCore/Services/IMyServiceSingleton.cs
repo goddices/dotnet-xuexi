@@ -7,7 +7,7 @@ using WebAppAspNetCore.Settings;
 
 namespace WebAppAspNetCore.Services
 {
-    public interface IMyService
+    public interface IMyServiceSingleton
     {
         string[] GetValues();
     }

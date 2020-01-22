@@ -40,15 +40,22 @@ namespace WebAppAspNetCore
                 options.UseSqlServer(Configuration.GetConnectionString("db"));
             });
             services.AddScoped<IMyService, MyService>();
+
             services.Configure<MySettings>(Configuration.GetSection("MySettings"));
 
             services.Configure<RazorViewEngineOptions>(options =>
             {
                 options.ViewLocationExpanders.Add(new MyViewLocationExpander());
             });
+
             services.Configure<SlackApiSettings>("Dev", Configuration.GetSection("SlackApi:DevChannel"));
             services.Configure<SlackApiSettings>("General", Configuration.GetSection("SlackApi:GeneralChannel"));
             services.Configure<SlackApiSettings>("Public", Configuration.GetSection("SlackApi:PublicChannel"));
+
+
+            //this is a singleton service
+            services.AddSingleton<IMyServiceSingleton, MyServiceSingleton>();
+            services.AddHostedService<Worker>();
 
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
