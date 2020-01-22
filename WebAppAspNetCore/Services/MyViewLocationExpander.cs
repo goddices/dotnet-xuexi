@@ -32,7 +32,8 @@ namespace WebAppAspNetCore.Services
         public static void Populate(this ViewLocationExpanderContext context)
         {
             string userAgent = context.ActionContext.HttpContext.Request.Headers["User-Agent"];
-            if (userAgent.Contains("Firefox"))
+            Console.WriteLine("--------User Agent is {0}", userAgent);
+            if (userAgent.Contains("iPhone") || userAgent.Contains("Android"))
             {
                 context.Values.Add("UseApp", "true");
             }
