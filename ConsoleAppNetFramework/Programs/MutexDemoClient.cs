@@ -83,6 +83,7 @@ namespace ConsoleAppNetFramework.Programs
 {
     public class MyMutexDemoWithTaskClient
     {
+        private static SemaphoreSlim slim = new SemaphoreSlim(2);
         private static Mutex mut = new Mutex();
         private const int numIterations = 1;
         private const int numThreads = 5;
@@ -114,10 +115,15 @@ namespace ConsoleAppNetFramework.Programs
         // so that only one thread at a time can enter.
         private static async Task UseResource()
         {
+
+
             // Wait until it is safe to enter.
             Console.WriteLine("{0} is requesting the mutex",
                               Thread.CurrentThread.ManagedThreadId);
-            mut.WaitOne();
+
+            //
+            //mut.WaitOne();
+            await slim.WaitAsync();
 
             Console.WriteLine("{0} has entered the protected area",
                               Thread.CurrentThread.ManagedThreadId);
@@ -130,10 +136,10 @@ namespace ConsoleAppNetFramework.Programs
                 Thread.CurrentThread.ManagedThreadId);
 
             // Release the Mutex.
-            mut.ReleaseMutex();
+            slim.Release();
+            //mut.ReleaseMutex(); //throw 
             Console.WriteLine("{0} has released the mutex",
                 Thread.CurrentThread.ManagedThreadId);
         }
     }
 }
-  

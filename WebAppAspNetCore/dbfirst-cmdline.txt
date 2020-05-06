@@ -22,3 +22,5 @@ MySql：Scaffold-DbContext -Connection "Data Source=(LocalDb)\MSSQLLocalDB;Initi
 MsSql：Scaffold-DbContext -Connection "Data Source=(LocalDb)\MSSQLLocalDB;Initial Catalog=sqlearn;Integrated Security=True" -Provider "Microsoft.EntityFrameworkCore.SqlServer" -OutputDir "Models"
 
 使用说明：将Connection中的连接字符串替换为自己的数据库连接，将OutputDir中的Models替换为自己要生成的文件目录名
+
+Pomelo.EntityFrameworkCore.MySql

@@ -15,15 +15,25 @@ namespace ConsoleAppNetFramework
         static void Main(string[] args)
         {
             Console.WriteLine($"Current SynchronizationContext is {SynchronizationContext.Current?.ToString()}");
-
-            FileAsyncReadClient.Run();
-            MultiThreadClient.RunTask();
-            MultiThreadClient.RunThread();
-            VolatileClient.Run();
-            VisableVolatileDemoClient.Run();
-            MutexDemoClient.Run();
-            MyMutexDemoWithTaskClient.RunAsync().Wait();
+            #region
+            //FileAsyncReadClient.Run();
+            //MultiThreadClient.RunTask();
+            //MultiThreadClient.RunThread();
+            //VolatileClient.Run();
+            //VisableVolatileDemoClient.Run();
+            //MutexDemoClient.Run();
+            //MyMutexDemoWithTaskClient.RunAsync().Wait();
+            #endregion
+            var t = Test();
+            t.Wait();
+            var a = t.Result;
+            Console.WriteLine(a);
             Console.ReadLine();
+        }
+
+        private static Task<int> Test()
+        {
+            return Task.FromResult(111);
         }
 
     }

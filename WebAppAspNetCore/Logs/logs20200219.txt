@@ -1,0 +1,52 @@
+2020-02-19 12:42:13.724 +08:00 [INF] User profile is available. Using 'C:\Users\goddi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2020-02-19 12:42:14.281 +08:00 [INF] Worker running at: "2020-02-19T12:42:14.2756164+08:00"
+2020-02-19 12:42:14.304 +08:00 [INF] Scoped c0mp4ny 5l4ck b07 111,https://hooks.slack.com/T1/B1/111111
+2020-02-19 12:42:14.304 +08:00 [INF] Scoped IMyService instance hash code = 35264868
+2020-02-19 12:42:14.342 +08:00 [INF] Request starting HTTP/2.0 GET https://localhost:44305/home/index  
+2020-02-19 12:42:14.498 +08:00 [INF] Executing endpoint 'WebAppAspNetCore.Controllers.HomeController.Index (WebAppAspNetCore)'
+2020-02-19 12:42:14.521 +08:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller WebAppAspNetCore.Controllers.HomeController (WebAppAspNetCore).
+2020-02-19 12:42:14.537 +08:00 [INF] Executing action method WebAppAspNetCore.Controllers.HomeController.Index (WebAppAspNetCore) - Validation state: "Valid"
+2020-02-19 12:42:17.404 +08:00 [INF] info of home controller in action index
+2020-02-19 12:42:17.404 +08:00 [DBG] info of home controller in action index
+2020-02-19 12:42:17.404 +08:00 [INF] Worker running at: "2020-02-19T12:42:17.4049661+08:00"
+2020-02-19 12:42:17.405 +08:00 [INF] Scoped c0mp4ny 5l4ck b07 111,https://hooks.slack.com/T1/B1/111111
+2020-02-19 12:42:17.405 +08:00 [INF] Scoped IMyService instance hash code = 49382823
+2020-02-19 12:42:17.408 +08:00 [INF] Executed action method WebAppAspNetCore.Controllers.HomeController.Index (WebAppAspNetCore), returned result Microsoft.AspNetCore.Mvc.ViewResult in 2867.9846000000002ms.
+2020-02-19 12:42:17.432 +08:00 [INF] Executing ViewResult, running view Index.
+2020-02-19 12:42:17.498 +08:00 [INF] Executed ViewResult - view Index executed in 81.7334ms.
+2020-02-19 12:42:17.498 +08:00 [INF] Executed action WebAppAspNetCore.Controllers.HomeController.Index (WebAppAspNetCore) in 2976.6528000000003ms
+2020-02-19 12:42:17.498 +08:00 [INF] Executed endpoint 'WebAppAspNetCore.Controllers.HomeController.Index (WebAppAspNetCore)'
+2020-02-19 12:42:17.503 +08:00 [INF] Request finished in 3163.8307ms 200 text/html; charset=utf-8
+2020-02-19 12:42:18.412 +08:00 [INF] Worker running at: "2020-02-19T12:42:18.4122553+08:00"
+2020-02-19 12:42:18.413 +08:00 [INF] Scoped c0mp4ny 5l4ck b07 111,https://hooks.slack.com/T1/B1/111111
+2020-02-19 12:42:18.413 +08:00 [INF] Scoped IMyService instance hash code = 29385934
+2020-02-19 12:42:19.414 +08:00 [INF] Worker running at: "2020-02-19T12:42:19.4149486+08:00"
+2020-02-19 12:42:19.415 +08:00 [INF] Scoped c0mp4ny 5l4ck b07 111,https://hooks.slack.com/T1/B1/111111
+2020-02-19 12:42:19.415 +08:00 [INF] Scoped IMyService instance hash code = 45653674
+2020-02-19 12:42:20.415 +08:00 [INF] Worker running at: "2020-02-19T12:42:20.4159532+08:00"
+2020-02-19 12:42:20.416 +08:00 [INF] Scoped c0mp4ny 5l4ck b07 111,https://hooks.slack.com/T1/B1/111111
+2020-02-19 12:42:20.416 +08:00 [INF] Scoped IMyService instance hash code = 41149443
+2020-02-19 12:42:21.417 +08:00 [INF] Worker running at: "2020-02-19T12:42:21.4169788+08:00"
+2020-02-19 12:42:21.417 +08:00 [INF] Scoped c0mp4ny 5l4ck b07 111,https://hooks.slack.com/T1/B1/111111
+2020-02-19 12:42:21.417 +08:00 [INF] Scoped IMyService instance hash code = 4916187
+2020-02-19 12:42:22.431 +08:00 [INF] Worker running at: "2020-02-19T12:42:22.4310801+08:00"
+2020-02-19 12:42:22.431 +08:00 [INF] Scoped c0mp4ny 5l4ck b07 111,https://hooks.slack.com/T1/B1/111111
+2020-02-19 12:42:22.431 +08:00 [INF] Scoped IMyService instance hash code = 59231349
+2020-02-19 12:42:23.434 +08:00 [INF] Worker running at: "2020-02-19T12:42:23.4335534+08:00"
+2020-02-19 12:42:23.434 +08:00 [INF] Scoped c0mp4ny 5l4ck b07 111,https://hooks.slack.com/T1/B1/111111
+2020-02-19 12:42:23.434 +08:00 [INF] Scoped IMyService instance hash code = 35327405
+2020-02-19 12:42:24.435 +08:00 [INF] Worker running at: "2020-02-19T12:42:24.4355325+08:00"
+2020-02-19 12:42:24.435 +08:00 [INF] Scoped c0mp4ny 5l4ck b07 111,https://hooks.slack.com/T1/B1/111111
+2020-02-19 12:42:24.435 +08:00 [INF] Scoped IMyService instance hash code = 39137468
+2020-02-19 12:42:25.436 +08:00 [INF] Worker running at: "2020-02-19T12:42:25.4366628+08:00"
+2020-02-19 12:42:25.437 +08:00 [INF] Scoped c0mp4ny 5l4ck b07 111,https://hooks.slack.com/T1/B1/111111
+2020-02-19 12:42:25.437 +08:00 [INF] Scoped IMyService instance hash code = 6326333
+2020-02-19 12:42:26.437 +08:00 [INF] Worker running at: "2020-02-19T12:42:26.4376124+08:00"
+2020-02-19 12:42:26.437 +08:00 [INF] Scoped c0mp4ny 5l4ck b07 111,https://hooks.slack.com/T1/B1/111111
+2020-02-19 12:42:26.437 +08:00 [INF] Scoped IMyService instance hash code = 32747756
+2020-02-19 12:42:27.445 +08:00 [INF] Worker running at: "2020-02-19T12:42:27.4453375+08:00"
+2020-02-19 12:42:27.445 +08:00 [INF] Scoped c0mp4ny 5l4ck b07 111,https://hooks.slack.com/T1/B1/111111
+2020-02-19 12:42:27.445 +08:00 [INF] Scoped IMyService instance hash code = 3707448
+2020-02-19 12:42:28.446 +08:00 [INF] Worker running at: "2020-02-19T12:42:28.4459826+08:00"
+2020-02-19 12:42:28.446 +08:00 [INF] Scoped c0mp4ny 5l4ck b07 111,https://hooks.slack.com/T1/B1/111111
+2020-02-19 12:42:28.446 +08:00 [INF] Scoped IMyService instance hash code = 2957860
