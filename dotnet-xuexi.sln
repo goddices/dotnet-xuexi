@@ -22,7 +22,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MySqlTest", "MySqlTest\MySqlTest.csproj", "{3E1FD770-F847-4578-A5B6-A98879263814}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureTableNetCore", "AzureTableNetCore\AzureTableNetCore.csproj", "{18137088-0A02-419F-BCFC-10EFAD3476C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureTableNetCore", "AzureTableNetCore\AzureTableNetCore.csproj", "{18137088-0A02-419F-BCFC-10EFAD3476C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PdfTest", "PdfTest\PdfTest.csproj", "{1123DE3C-4650-4C19-A03E-C5D5ED1B5CE6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -62,6 +64,10 @@ Global
 		{18137088-0A02-419F-BCFC-10EFAD3476C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18137088-0A02-419F-BCFC-10EFAD3476C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18137088-0A02-419F-BCFC-10EFAD3476C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1123DE3C-4650-4C19-A03E-C5D5ED1B5CE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1123DE3C-4650-4C19-A03E-C5D5ED1B5CE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1123DE3C-4650-4C19-A03E-C5D5ED1B5CE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1123DE3C-4650-4C19-A03E-C5D5ED1B5CE6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

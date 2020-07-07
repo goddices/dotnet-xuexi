@@ -24,4 +24,13 @@
     <PackageReference Include="Quartz" Version="3.0.7" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Programs\test._cert">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Programs\test._pfx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
