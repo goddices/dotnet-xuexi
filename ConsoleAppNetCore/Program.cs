@@ -14,8 +14,8 @@ namespace ConsoleAppNetCore
             //AutoMapperClient.Run();
             //TimeZoneInfoClient.Run();
             //EmbeddedResourceClient.Run();
-            //QuartzCronExpressionClient.Run();
-            RsaSignClient.Run();
+            QuartzCronExpressionClient.Run();
+            //RsaSignClient.Run();
 
             Console.ReadLine();
         }

@@ -17,7 +17,7 @@ namespace ConsoleAppNetCore.Programs
             string cronTest = "0 0 0 0 1,3 ?";
             Console.WriteLine(CronExpression.IsValidExpression(cronTest));
 
-            string cronExpressionInBeijingTime = "0 0 0,17 * * ? ";
+            string cronExpressionInBeijingTime = "00 00 09 ? * 2,6,3,4,5";
             CronExpression cronExpression = new CronExpression(cronExpressionInBeijingTime);
             cronExpression.TimeZone = TimeZoneInfo.Local;
 

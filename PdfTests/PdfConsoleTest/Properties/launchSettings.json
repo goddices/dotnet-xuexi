@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "PdfTest": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
