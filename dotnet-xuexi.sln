@@ -36,9 +36,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AsyncAwait", "AsyncAwait", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinformFrx", "AsyncAwait\WinformFrx\WinformFrx.csproj", "{3974CE68-8F69-4A9B-B9F7-91934CA583D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAppCore", "AsyncAwait\WebAppCore\WebAppCore.csproj", "{57AD536F-6A25-4816-BA03-4DEDFE91F0BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAppCore", "AsyncAwait\WebAppCore\WebAppCore.csproj", "{57AD536F-6A25-4816-BA03-4DEDFE91F0BB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAppFrx", "AsyncAwait\WebAppFrx\WebAppFrx.csproj", "{84C681AE-A612-4015-95E5-94BF7DC915FF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ResourcesTests", "ResourcesTests", "{B39EC6B1-8D37-402C-AE56-193558A9DBD4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResourceWebTest", "ResourcesTests\ResourceWebTest\ResourceWebTest.csproj", "{E7868805-E718-4BF5-B1B1-4906CCB8D86B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -98,6 +102,10 @@ Global
 		{84C681AE-A612-4015-95E5-94BF7DC915FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84C681AE-A612-4015-95E5-94BF7DC915FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{84C681AE-A612-4015-95E5-94BF7DC915FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7868805-E718-4BF5-B1B1-4906CCB8D86B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7868805-E718-4BF5-B1B1-4906CCB8D86B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7868805-E718-4BF5-B1B1-4906CCB8D86B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7868805-E718-4BF5-B1B1-4906CCB8D86B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -110,6 +118,7 @@ Global
 		{3974CE68-8F69-4A9B-B9F7-91934CA583D0} = {72CDE06C-F9CE-4AC1-98F1-091F0D53D29F}
 		{57AD536F-6A25-4816-BA03-4DEDFE91F0BB} = {72CDE06C-F9CE-4AC1-98F1-091F0D53D29F}
 		{84C681AE-A612-4015-95E5-94BF7DC915FF} = {72CDE06C-F9CE-4AC1-98F1-091F0D53D29F}
+		{E7868805-E718-4BF5-B1B1-4906CCB8D86B} = {B39EC6B1-8D37-402C-AE56-193558A9DBD4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {278600B7-EE0C-424A-A4B8-D99964DCF98B}
