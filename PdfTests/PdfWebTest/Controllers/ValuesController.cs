@@ -68,7 +68,7 @@ namespace PdfWebTest.Controllers
 
         private async Task<Stream> Inner()
         {
-            var filename = "jlwhs.pdf";
+            var filename = "我的简历.pdf";
 
             using (var pdfDocumentStream = File.OpenRead(filename))
             {

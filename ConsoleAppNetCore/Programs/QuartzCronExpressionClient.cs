@@ -14,10 +14,10 @@ namespace ConsoleAppNetCore.Programs
             Console.WriteLine(aa.CronExpressionString);
 
 
-            string cronTest = "0 0 0 0 1,3 ?";
+            string cronTest = "* 40 10/2 * * ?";
             Console.WriteLine(CronExpression.IsValidExpression(cronTest));
 
-            string cronExpressionInBeijingTime = "00 00 09 ? * 2,6,3,4,5";
+            string cronExpressionInBeijingTime = "* 40 10/2 * * ?";
             CronExpression cronExpression = new CronExpression(cronExpressionInBeijingTime);
             cronExpression.TimeZone = TimeZoneInfo.Local;
 
