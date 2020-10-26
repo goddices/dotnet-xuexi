@@ -24,10 +24,11 @@ namespace ConsoleAppNetFramework
             //MutexDemoClient.Run();
             //MyMutexDemoWithTaskClient.RunAsync().Wait();
             #endregion
-            var t = Test();
-            t.Wait();
-            var a = t.Result;
-            Console.WriteLine(a);
+            //var t = Test();
+            //t.Wait();
+            //var a = t.Result;
+            new ImportUtil().Import();
+            //Console.WriteLine(a);
             Console.ReadLine();
         }
 

@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Programs\FileAsyncReadClient.cs" />
     <Compile Include="Programs\GarbageCollectClient.cs" />
+    <Compile Include="Programs\ImportUtil.cs" />
     <Compile Include="Programs\MultiThreadClient.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Programs\MutexDemoClient.cs" />

@@ -1,14 +1,53 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using Quartz;
+using Quartz.Impl;
 
 namespace ConsoleAppNetCore.Programs
 {
+    public class QuartzJob : IJob
+    {
+        public Task Execute(IJobExecutionContext context)
+        {
+            Console.WriteLine($"[{context.FireTimeUtc}] job executed");
+            return Task.CompletedTask;
+        }
+    }
     public static class QuartzCronExpressionClient
     {
         public static void Run()
         {
+            Task.Run(async () =>
+            {
+                var schedulerFactory = new StdSchedulerFactory();
+                var _scheduler = await schedulerFactory.GetScheduler();
+              
+
+                var job = JobBuilder.Create<QuartzJob>()
+                            .WithIdentity("1234")
+                            .Build();
+
+                var builder = TriggerBuilder.Create()
+                            .WithIdentity("1234")
+                            .WithCronSchedule("0/3 * * * * ? ", b =>
+                            {
+                                // if startAt < now , do nothing about the misfired trigger 
+                                b.WithMisfireHandlingInstructionDoNothing();
+                                b.InTimeZone(TimeZoneInfo.Local);
+                            })
+                            .EndAt(DateTimeOffset.MaxValue)
+                            //.StartAt(startAt.Value)
+                            //.StartNow()
+                            .StartAt(DateTimeOffset.UtcNow.AddSeconds(-20))
+                            ;
+
+                var trigger = builder.Build(); 
+                await _scheduler.Start();
+                await _scheduler.ScheduleJob(job, trigger);
+            });
+            Console.ReadLine();
 
             CronExpression aa = new CronExpression("0 0 0 * 1,3 ?");
             Console.WriteLine(aa.CronExpressionString);
