@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ConsoleAppNetCore": {
+      "commandName": "Project",
+      "commandLineArgs": "adfasdfasdfsafas"
+    }
+  }
+}
