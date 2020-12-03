@@ -1,0 +1,62 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@section Scripts{
+
+    <script>
+        $(document).ready(function () {
+            $('#fileButton1').change(function () {
+                var file = $('#fileButton1')[0].files[0];
+                console.log(file.name)
+                console.log(file.size);
+                console.log(file.type); 
+                $.get('/api/minio/' + file.name + "?filesize=" + file.size + '&contentType=' + file.type, function (resp) {
+                    console.log(resp.uri);
+                    $.ajax({
+                        type: 'put',
+                        url: resp.uri,
+                        headers: { 'Content-Type': file.type },
+                        data: file,
+                        contentType: false,
+                        processData: false,
+                        success: function () {
+                            alert('upload succeed');
+                        }
+                    });
+                });
+            });
+
+            $('#fileButton2').change(function () {
+                var file = $('#fileButton2')[0].files[0];
+                console.log(file.name)
+                console.log(file.size);
+                console.log(file.type); 
+                $.get('/api/minio/' + file.name + "?filesize=" + file.size + '&contentType=abcdef/aaaa', function (resp) {
+                    console.log(resp.uri);
+                    $.ajax({
+                        type: 'put',
+                        url: resp.uri,
+                        headers: { 'Content-Type': 'abcdef/aaaa' },
+                        data: file,
+                        contentType: false,
+                        processData: false,
+                        success: function () {
+                            alert('upload succeed');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+}
+
+<div class="text-center">
+    <h5 class="display-4">跟随文件类型 ContentType=文件contenttype</h5>
+    <div><input type="file" id="fileButton1" /></div>
+</div>
+
+
+<div class="text-center">
+    <h5 class="display-4">指定文件类型 ContentType=写死的</h5>
+    <div><input type="file" id="fileButton2" /></div>
+</div>
