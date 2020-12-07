@@ -5,7 +5,7 @@
 
     <script>
         $(document).ready(function () {
-            $('#fileButton1').change(function () {
+            $('#fileButton1').on('change',function () {
                 var file = $('#fileButton1')[0].files[0];
                 console.log(file.name)
                 console.log(file.size);

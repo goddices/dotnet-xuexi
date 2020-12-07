@@ -47,11 +47,11 @@ namespace WebApiClient
     {
         static void Main(string[] args)
         {
-            var a1 = "​/v1​/LicenseBindings​/bindTo​";
-            a1.Split('/').ToList().ForEach(e =>
-            {
-                Console.WriteLine(e);
-            });
+            //var a1 = "​/v1​/LicenseBindings​/bindTo​";
+            //a1.Split('/').ToList().ForEach(e =>
+            //{
+            //    Console.WriteLine(e);
+            //});
 
             Console.WriteLine("Hello World!");
             Run().Wait();
@@ -104,16 +104,31 @@ namespace WebApiClient
             try
             {
                 var id = Guid.NewGuid();
-                var service = RestService.For<IPackageService>("http://localhost:11000");
-                //var tasks = GetTasks(service, CancellationToken.None).ToArray();
-                var a = await service.CreatePreploadedVersionFilesAsync(id, id, id, "emh1ZmVuZw==", CancellationToken.None);
-                var tasks = GetTasks(service, CancellationToken.None).ToArray();
-                await Task.WhenAll(tasks);
+                var service = RestService.For<ITest>("http://localhost:20000");
+
+                var client = service.GetType().GetProperty("Client").GetValue(service) as HttpClient;
+                string a = "";
+                for (int i = 0; i < 2000; i++)
+                {
+                    a = a + $"20201127000000{i},";
+                }
+                a = "\"" + a.Remove(a.Length - 1) + "\"";
+                client.DefaultRequestHeaders.IfMatch.Add(new System.Net.Http.Headers.EntityTagHeaderValue(a));
+
+                await service.DeleteColumnAsync(Guid.NewGuid(), Guid.NewGuid(), CancellationToken.None);
+
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
         }
+    }
+
+    public interface ITest
+    {
+        [Delete("/v1/datacenter/tables/{tableId}/columns/{columnId}")]
+        Task DeleteColumnAsync(Guid tableId, Guid columnId, [Body] object a, CancellationToken token);
+
     }
 }

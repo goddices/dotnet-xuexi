@@ -8,6 +8,7 @@ using Amazon.S3;
 using MinioTest.Models;
 using Amazon.S3.Model;
 using Amazon.Runtime;
+using Microsoft.Extensions.Options;
 
 namespace MinioTest.Controllers
 {
@@ -16,15 +17,16 @@ namespace MinioTest.Controllers
     public class MinIoController : ControllerBase
     {
         private readonly string bucketName = "test";
-
+        private readonly MinIoServiceOptions minioServiceOptions;
         private readonly AmazonS3Client s3Client;
-        public MinIoController()
+        public MinIoController(IOptionsMonitor<MinIoServiceOptions> optionsMonitor)
         {
+            minioServiceOptions = optionsMonitor.CurrentValue;
             this.s3Client = new AmazonS3Client(
-                new BasicAWSCredentials("minioadmin", "minioadmin"),
+                new BasicAWSCredentials(minioServiceOptions.AppId, minioServiceOptions.AppSecret),
                 new AmazonS3Config
                 {
-                    ServiceURL = "http://localhost:9000",
+                    ServiceURL = minioServiceOptions.BaseAddress,
                     UseHttp = false,
                     ForcePathStyle = true
                 });
